@@ -1,0 +1,69 @@
+scala> var increase = (x: Int) => x + 1
+increase: (Int) => Int = <function>
+
+scala> increase(10)
+res0: Int = 11
+
+scala> increase = (x: Int) => x + 9999
+increase: (Int) => Int = <function>
+
+scala> increase(10)
+res2: Int = 10009
+
+scala> increase = (x: Int) => {
+         println("We")
+         println("are")
+         println("here!")
+         x + 1
+       }
+increase: (Int) => Int = <function>
+
+scala> increase(10)
+We
+are
+here!
+res4: Int = 11
+
+scala> val someNumbers = List(-11, -10, -5, 0, 5, 10)
+someNumbers: List[Int] = List(-11, -10, -5, 0, 5, 10)
+
+scala> someNumbers.foreach((x: Int) => println(x))
+-11
+-10
+-5
+0
+5
+10
+
+scala> someNumbers.filter((x: Int) => x > 0)
+res6: List[Int] = List(5, 10)
+
+scala> someNumbers.filter((x) => x > 0)
+res7: List[Int] = List(5, 10)
+
+scala> someNumbers.filter(x => x > 0)
+res8: List[Int] = List(5, 10)
+
+scala> someNumbers.filter(_ > 0)
+res9: List[Int] = List(5, 10)
+
+scala> someNumbers.filter(x => x > 0)
+res10: List[Int] = List(5, 10)
+
+scala> val f = _ + _
+<console>:4: error: missing parameter type for expanded function ((x$1, x$2) => x$1.$plus(x$2))
+       val f = _ + _
+               ^
+<console>:4: error: missing parameter type for expanded function ((x$1: <error>, x$2) => x$1.$plus(x$2))
+       val f = _ + _
+                   ^
+
+scala> val f = (_: Int) + (_: Int)
+f: (Int, Int) => Int = <function>
+
+scala> f(5, 10)
+res11: Int = 15
+
+
+
+

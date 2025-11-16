@@ -1,0 +1,27 @@
+scala> def echo(args: String*) =
+         for (arg <- args) println(arg)
+echo: (String*)Unit
+
+scala> echo()
+
+scala> echo("one")
+one
+
+scala> echo("hello", "world!")
+hello
+world!
+
+scala> val arr = Array("What's", "up", "doc?")
+arr: Array[java.lang.String] = Array(What's, up, doc?)
+
+scala> echo(arr)
+<console>:7: error: type mismatch;
+ found   : Array[java.lang.String]
+ required: String
+       echo(arr)
+            ^
+
+scala> echo(arr: _*)
+What's
+up
+doc?

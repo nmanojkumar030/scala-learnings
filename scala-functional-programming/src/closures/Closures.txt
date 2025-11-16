@@ -1,0 +1,46 @@
+scala> (x: Int) => x + more
+<console>:5: error: not found: value more
+       (x: Int) => x + more
+                       ^
+
+scala> var more = 1
+more: Int = 1
+
+scala> val addMore = (x: Int) => x + more
+addMore: (Int) => Int = <function>
+
+scala> addMore(10)
+res19: Int = 11
+
+scala> more = 9999
+more: Int = 9999
+
+scala> addMore(10)
+res21: Int = 10009
+
+scala> val someNumbers = List(-11, -10, -5, 0, 5, 10)
+someNumbers: List[Int] = List(-11, -10, -5, 0, 5, 10)
+
+scala> var sum = 0
+sum: Int = 0
+
+scala> someNumbers.foreach(sum +=  _)
+
+scala> sum
+res23: Int = -11
+
+scala>   def makeIncreaser(more: Int) = (x: Int) => x + more
+
+makeIncreaser: (Int)(Int) => Int
+
+scala> val inc1 = makeIncreaser(1)
+inc1: (Int) => Int = <function>
+
+scala> val inc9999 = makeIncreaser(9999)
+inc9999: (Int) => Int = <function>
+
+scala> inc1(10)
+res24: Int = 11
+
+scala> inc9999(10)
+res25: Int = 10009

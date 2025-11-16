@@ -1,0 +1,35 @@
+scala> def sum(a: Int, b: Int, c: Int) = a + b + c
+sum: (Int,Int,Int)Int
+
+scala> sum(1, 2, 3)
+res12: Int = 6
+
+scala> val a = sum _
+a: (Int, Int, Int) => Int = <function>
+
+scala> a(1, 2, 3)
+res13: Int = 6
+
+scala> a.apply(1, 2, 3)
+res14: Int = 6
+
+scala> val b = sum(1, _: Int, 3)
+b: (Int) => Int = <function>
+
+scala> b(2)
+res15: Int = 6
+
+scala> b(5)
+res16: Int = 9
+
+scala> val c = sum
+<console>:5: error: missing arguments for method sum in object $iw;
+follow this method with `_' if you want to treat it as a partially applied function
+       val c = sum
+               ^
+
+scala> val d = sum _
+d: (Int, Int, Int) => Int = <function>
+
+scala> d(10, 20, 30)
+res17: Int = 60
